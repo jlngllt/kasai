@@ -1,4 +1,4 @@
-#include "suki.h"
+#include "..\suki\suki.h"
 #include <stdio.h>
 
 void s_test_input_handler(Suki_Input *input, void *user_pointer)

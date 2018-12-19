@@ -1,5 +1,5 @@
 #include "suki.h"
-#include "HandmadeMath.h"
+#include "..\kaizen\HandmadeMath.h" // TODO : to delete
 
 extern int32_t win32_is_running(void);
 extern int32_t win32_new_frame(void);

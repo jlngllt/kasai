@@ -1,6 +1,7 @@
 #include "suki.h"
+
 #define HANDMADE_MATH_IMPLEMENTATION
-#include "HandmadeMath.h"
+#include "..\kaizen\HandmadeMath.h" // TODO delete
 
 #include <assert.h>
 #include <stdio.h>

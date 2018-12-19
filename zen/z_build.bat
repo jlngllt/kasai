@@ -6,7 +6,6 @@ SET DEBUG="yes"
 SET GRAPHIC_API="SUKI_D3D11"
 ::SET GRAPHIC_API="SUKI_D3D9"
 
-SET BIN=s_test.exe
 SET CFLAGS=-nologo -W4 -Zi
 
 if %GRAPHIC_API% == "SUKI_D3D9" (
@@ -31,16 +30,21 @@ if %DEBUG% == "no" (
 
 del *.pdb > NUL 2> NUL
 
-cl %CFLAGS% %SYMBOLS% -I . -c s_win32.c
-cl %CFLAGS% %SYMBOLS% -I . -c s_main.c
-cl %CFLAGS% %SYMBOLS% -I . -c s_test.c
-cl -nologo -Zi s_win32.obj s_main.obj s_test.obj -Fe%BIN% -link User32.lib %GRAPHIC_LIB%
+:: ---
+SET BIN=z_fuseki.exe
+cl %CFLAGS% %SYMBOLS% -I . -c z_fuseki.c
+cl %CFLAGS% %SYMBOLS% -I . -c ..\suki\s_win32.c
+cl %CFLAGS% %SYMBOLS% -I . -c ..\suki\s_main.c
+cl -nologo -Zi s_win32.obj s_main.obj z_fuseki.obj -Fe%BIN% -link User32.lib %GRAPHIC_LIB%
+:: ---
+
 goto eof
 
 :clean
 del /f /s %BIN%
 del /f /s *.pdb
 del /f /s *.obj
+del /f /s *.ilk
 goto eof
 
 :eof
